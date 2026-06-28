@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+
+    <main class="page wide">
+        <section class="hero compact">
+            <p class="eyebrow">Saved Results</p>
+            <h1>Calculation History</h1>
+            <p class="subtitle">All previous calculator operations stored in SQLite.</p>
+        </section>
+
+        <section class="glass table-card">
+            <div class="section-title">
+                <a href="{{ url_for('index') }}" class="back-link">Back to Calculator</a>
+                <form method="POST" action="{{ url_for('clear_history') }}">
+                    <button class="danger-button" type="submit">Clear History</button>
+                </form>
+            </div>
+
+            {% if calculations %}
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Number</th>
+                                <th>Operation</th>
+                                <th>Second Number</th>
+                                <th>Result</th>
+                                <th>Date & Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in calculations %}
+                                <tr>
+                                    <td>{{ item.id }}</td>
+                                    <td>{{ item.first_number }}</td>
+                                    <td>{{ item.operation }}</td>
+                                    <td>{{ item.second_number }}</td>
+                                    <td><strong>{{ item.result }}</strong></td>
+                                    <td>{{ item.created_at }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="empty">No history available.</p>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+
+    <main class="page">
+        <section class="hero">
+            <p class="eyebrow">Python Flask Mini Project</p>
+            <h1>Basic Calculator</h1>
+            <p class="subtitle">Fast arithmetic with a glossy neon interface and saved calculation history.</p>
+        </section>
+
+        <section class="layout">
+            <div class="calculator-card glass">
+                <form method="POST" class="calculator-form">
+                    <label>
+                        First Number
+                        <input type="number" step="any" name="first_number" placeholder="Example: 25" required>
+                    </label>
+
+                    <label>
+                        Second Number
+                        <input type="number" step="any" name="second_number" placeholder="Example: 5" required>
+                    </label>
+
+                    <label>
+                        Operation
+                        <select name="operation" required>
+                            <option value="">Choose operation</option>
+                            <option value="add">Addition (+)</option>
+                            <option value="subtract">Subtraction (-)</option>
+                            <option value="multiply">Multiplication (x)</option>
+                            <option value="divide">Division (/)</option>
+                        </select>
+                    </label>
+
+                    <button type="submit" class="primary-button">Calculate</button>
+                </form>
+
+                {% if error %}
+                    <div class="message error">{{ error }}</div>
+                {% endif %}
+
+                {% if result is not none %}
+                    <div class="result-box">
+                        <span>{{ expression }}</span>
+                        <strong>{{ result }}</strong>
+                    </div>
+                {% endif %}
+            </div>
+
+            <aside class="history-card glass">
+                <div class="section-title">
+                    <h2>Recent History</h2>
+                    <a href="{{ url_for('history') }}">View all</a>
+                </div>
+
+                {% if history %}
+                    <ul class="history-list">
+                        {% for item in history %}
+                            <li>
+                                <span>{{ item.first_number }} {{ item.operation }} {{ item.second_number }}</span>
+                                <strong>{{ item.result }}</strong>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="empty">No calculations yet. Try your first one!</p>
+                {% endif %}
+            </aside>
+        </section>
+    </main>
+</body>
+</html>
