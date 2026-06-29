@@ -1,4 +1,5 @@
-🧮 Basic Calculator 
+🧮 Basic Calculator
+
 A modern Flask-based calculator web application with calculation history stored in MongoDB and a clean glassmorphism UI.
 
 🚀 Features
