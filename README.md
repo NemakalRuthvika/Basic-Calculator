@@ -1,44 +1,46 @@
-# Basic Calculator
+# 🧮 Basic Calculator
 
-A shiny Flask-based calculator web application with SQLite calculation history.
+A modern Flask-based calculator web application with calculation history stored in MongoDB and a clean glassmorphism UI.
 
-## Features
+---
 
-- Addition, subtraction, multiplication and division
-- Decimal number support
-- Divide-by-zero validation
-- Recent calculation history on home page
-- Full calculation history page
-- Clear history option
-- Modern animated glassmorphism UI
+## 🚀 Features
 
-## Project Structure
+- ➕ Addition  
+- ➖ Subtraction  
+- ✖️ Multiplication  
+- ➗ Division  
+- 🔢 Decimal number support  
+- 🚫 Divide-by-zero protection  
+- 🕒 Recent calculations on homepage  
+- 📜 Full calculation history page  
+- 🧹 Clear history option  
+- 🎨 Modern animated UI  
 
-```text
-Basic Calculator/
-|-- app.py
-|-- requirements.txt
-|-- README.md
-|-- templates/
-|   |-- index.html
-|   |-- history.html
-|-- static/
-|   |-- style.css
-|-- calculator.db
-```
+---
 
-## Run
+## 🛠️ Tech Stack
 
-```bash
-pip install -r requirements.txt
-python app.py
-```
+- Backend: Flask (Python)  
+- Database: MongoDB  
+- Frontend: HTML, CSS  
 
-Open:
+---
 
-```text
-http://127.0.0.1:5000
-```
-"# Basic-Calculator" 
-"# Contact-Book" 
-"# Contact-Book" 
+## 📦 Project Structure
+
+Basic-Calculator/
+
+├── app.py  
+├── requirements.txt  
+├── .env  
+├── README.md  
+
+├── templates/  
+│   ├── index.html  
+│   └── history.html  
+
+├── static/  
+│   └── style.css  
+
+└── MongoDB (external database)
