@@ -1,15 +1,8 @@
 Flask==3.0.3
 gunicorn==22.0.0
-<<<<<<< HEAD
-=======
-pip install python-dotenv
-
->>>>>>> f145c76a04a64b80bfa31499aac982cc8396cbb5
+python-dotenv
  Flask
 pymongo
 dnspython
 gunicorn
-<<<<<<< HEAD
-python-dotenv
-=======
->>>>>>> f145c76a04a64b80bfa31499aac982cc8396cbb5
+
